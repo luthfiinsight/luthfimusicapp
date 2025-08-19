@@ -58,6 +58,14 @@
            -webkit-box-orient: vertical;
            -webkit-line-clamp: 3;
         }
+        /* [BARU] Style untuk toggle switch */
+        .toggle-checkbox:checked {
+            right: 0;
+            border-color: #10B981;
+        }
+        .toggle-checkbox:checked + .toggle-label {
+            background-color: #10B981;
+        }
     </style>
 </head>
 <body class="text-gray-300 font-sans">
@@ -71,10 +79,10 @@
             
             <!-- Sidebar hanya untuk Desktop -->
             <aside class="hidden md:flex w-64 bg-sidebar p-4 flex-shrink-0 overflow-y-auto flex-col space-y-6">
-                <!-- Profil Section -->
+                <!-- Profil Section Desktop -->
                 <div class="text-center p-4 border-b border-gray-800">
                     <img src="https://placehold.co/100x100/1DB954/FFFFFF?text=Luthfi" alt="Foto Profil Luthfi" class="w-24 h-24 rounded-full mx-auto mb-4 border-2 border-green-500">
-                    <h3 class="text-lg font-bold text-white">Luthfi</h3>
+                    <h3 class="text-lg font-bold text-white">Luthfi Kurnia</h3>
                     <p class="text-xs text-gray-400 mt-1">Selamat datang di aplikasi musik pribadi saya. Nikmati koleksi lagu pilihan terbaik.</p>
                     
                     <div class="mt-4">
@@ -92,19 +100,23 @@
                 <div>
                     <h2 class="text-xl font-bold text-white mb-4">Kategori</h2>
                     <div id="category-list" class="space-y-2"></div>
-                    <button id="toggle-categories-btn" class="text-sm text-gray-400 hover:text-white mt-4 hidden">
-                        Tampilkan Lebih Banyak
-                    </button>
                 </div>
             </aside>
 
             <!-- Konten Utama -->
             <main class="flex-1 bg-main-content p-4 md:p-6 overflow-y-auto">
-                <!-- [DIPERBARUI] Header Mobile dengan Foto Profil -->
-                <header class="md:hidden mb-4">
-                    <div class="flex justify-between items-center">
-                        <h1 class="text-2xl font-bold text-white">Luthfi Music</h1>
-                        <img src="https://placehold.co/100x100/1DB954/FFFFFF?text=Luthfi" alt="Foto Profil" class="w-10 h-10 rounded-full border-2 border-green-500">
+                <!-- [DIPERBARUI] Header Mobile dengan Tampilan Profil Baru -->
+                <header class="md:hidden mb-6">
+                    <div class="bg-green-900/50 rounded-2xl p-4 relative text-center">
+                        <div class="absolute top-4 right-4">
+                            <div class="relative inline-block w-10 mr-2 align-middle select-none transition duration-200 ease-in">
+                                <input type="checkbox" name="toggle" id="theme-toggle" class="toggle-checkbox absolute block w-6 h-6 rounded-full bg-white border-4 appearance-none cursor-pointer"/>
+                                <label for="theme-toggle" class="toggle-label block overflow-hidden h-6 rounded-full bg-gray-300 cursor-pointer"></label>
+                            </div>
+                        </div>
+                        <img src="https://placehold.co/100x100/1DB954/FFFFFF?text=Luthfi" alt="Foto Profil" class="w-20 h-20 rounded-full mx-auto ring-2 ring-white/50 shadow-lg">
+                        <h2 class="text-xl font-bold text-white mt-3">Luthfi Kurnia</h2>
+                        <p class="text-xs text-gray-300 mt-1 max-w-xs mx-auto">Selamat datang di aplikasi musik pribadi saya. Nikmati koleksi lagu pilihan terbaik.</p>
                     </div>
                     <div class="mt-4 space-y-4">
                          <div class="relative">
@@ -134,7 +146,7 @@
                     </div>
                 </div>
                 
-                <!-- Container lagu dengan class responsif dan maksimal 4 kolom -->
+                <!-- Container lagu -->
                 <div id="song-list" class="flex flex-col md:grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-6"></div>
             </main>
         </div>
